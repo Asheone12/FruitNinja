@@ -62,7 +62,7 @@ public class GameThread implements Runnable {
 
 	this.scorePaint.setColor(Color.MAGENTA);
 	this.scorePaint.setAntiAlias(true);
-	this.scorePaint.setTextSize(38.0f);
+	this.scorePaint.setTextSize(GameConf.INSTANCE.getScreenWith()/10f);
 
 	this.linePaint.setAntiAlias(true);
 	this.linePaint.setColor(Color.YELLOW);
@@ -103,7 +103,7 @@ public class GameThread implements Runnable {
 
 			    projectileManager.draw(canvas);
 			    timer.draw(canvas);
-			    canvas.drawText("Score: " + score, width - 160, 50, scorePaint);
+			    canvas.drawText("分数: " + score, width - GameConf.INSTANCE.getScreenWith()/2.2f, GameConf.INSTANCE.getScreenHeight()/8f, scorePaint);
 
 			    if (paths != null) {
 				for (int i = 0; i < paths.size(); i++) {

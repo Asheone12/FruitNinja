@@ -23,7 +23,7 @@ public class GameTimer {
 
 	timeRemainingPaint.setAntiAlias(true);
 	timeRemainingPaint.setColor(Color.GREEN);
-	timeRemainingPaint.setTextSize(38.0f);
+	timeRemainingPaint.setTextSize(GameConf.INSTANCE.getScreenWith()/10f);
     }
     
     private long getTime() {
@@ -52,6 +52,6 @@ public class GameTimer {
     }
 
     public void draw(Canvas canvas) {
-	canvas.drawText(formatter.format(new Date(getMillisecondsRemaining())), 30, 50, timeRemainingPaint);
+	canvas.drawText(formatter.format(new Date(getMillisecondsRemaining())), GameConf.INSTANCE.getScreenWith()/8f, GameConf.INSTANCE.getScreenHeight()/8f, timeRemainingPaint);
     }
 }
