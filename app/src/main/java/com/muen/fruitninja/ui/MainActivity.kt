@@ -1,12 +1,12 @@
 package com.muen.fruitninja.ui
 
 import android.content.Intent
-import com.muen.fruitninja.databinding.ActivityMenuBinding
+import com.muen.fruitninja.databinding.ActivityMainBinding
 import com.muen.fruitninja.util.BaseActivity
 
-class MenuActivity : BaseActivity<ActivityMenuBinding>() {
-    override fun onCreateViewBinding(): ActivityMenuBinding {
-        return ActivityMenuBinding.inflate(layoutInflater)
+class MainActivity : BaseActivity<ActivityMainBinding>() {
+    override fun onCreateViewBinding(): ActivityMainBinding {
+        return ActivityMainBinding.inflate(layoutInflater)
     }
 
     override fun initListener() {

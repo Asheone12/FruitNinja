@@ -18,7 +18,7 @@ class ResultActivity : BaseActivity<ActivityResultBinding>() {
     override fun initListener() {
         super.initListener()
         viewBinding.btnBack.setOnClickListener {
-            val i = Intent(this,MenuActivity::class.java)
+            val i = Intent(this,MainActivity::class.java)
             startActivity(i)
         }
     }
