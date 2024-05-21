@@ -18,7 +18,7 @@ public class MainActivity extends FragmentActivity implements MainMenuFragment.O
 	showMainMenu();
     }
 
-    private void showMainMenu() {
+	private void showMainMenu() {
 	MainMenuFragment fragment = new MainMenuFragment();
 	FragmentTransaction transaction = (FragmentTransaction) getSupportFragmentManager().beginTransaction();
 	transaction.replace(R.id.fragment_container, fragment, "MainMenu");
@@ -51,8 +51,6 @@ public class MainActivity extends FragmentActivity implements MainMenuFragment.O
 	if (getSupportFragmentManager().findFragmentByTag("Results") != null) {
 	    getSupportFragmentManager().popBackStack();
 	    showMainMenu();
-	} else {
-	    super.onBackPressed();
 	}
     }
 }
