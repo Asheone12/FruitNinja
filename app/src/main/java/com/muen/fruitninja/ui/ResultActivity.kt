@@ -1,6 +1,7 @@
 package com.muen.fruitninja.ui
 
 import android.content.Intent
+import com.muen.fruitninja.R
 import com.muen.fruitninja.databinding.ActivityResultBinding
 import com.muen.fruitninja.util.BaseActivity
 
@@ -13,7 +14,7 @@ class ResultActivity : BaseActivity<ActivityResultBinding>() {
         super.initData()
         val intent = intent
         val score = intent.getIntExtra("score",0)
-        viewBinding.tvScore.text = score.toString()
+        viewBinding.tvScore.text = getString(R.string.game_end_score, score.toString())
     }
     override fun initListener() {
         super.initListener()

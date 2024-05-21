@@ -9,13 +9,19 @@
         android:id="@+id/tv_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:gravity="center"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_back" />
+        app:layout_constraintBottom_toTopOf="@id/btn_back"
+        android:layout_marginBottom="10dp"/>
     <Button
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_blue_gradient_common"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"

@@ -2,4 +2,7 @@
     <string name="app_name">水果忍者</string>
     <string name="start">开始游戏</string>
     <string name="button_home">返回菜单</string>
+    <string name="game_end">退出游戏</string>
+    <string name="game_end_score">游戏结束\n您本轮游戏的分数是\n %1$s</string>
+    <string name="game_version">V%1$s</string>
 </resources>
