@@ -16,7 +16,6 @@ import com.muen.fruitninja.util.TimedPath
 class GameView : SurfaceView, OnTouchListener, SurfaceHolder.Callback {
     private var gameThread: GameThread? = null
     private var projectileManager: ProjectileManager? = null
-    private var gameOverListener: GameFragment.OnGameOver? = null
     private var isGameInitialised = false
     private val paths = SparseArrayCompat<TimedPath>()
 
@@ -83,7 +82,7 @@ class GameView : SurfaceView, OnTouchListener, SurfaceHolder.Callback {
         } else {
             isGameInitialised = true
             projectileManager = FruitProjectileManager(resources)
-            gameThread = GameThread(getHolder(), projectileManager, gameOverListener)
+            gameThread = GameThread(getHolder(), projectileManager)
             gameThread!!.startGame(width, height)
         }
     }
@@ -91,9 +90,5 @@ class GameView : SurfaceView, OnTouchListener, SurfaceHolder.Callback {
     override fun surfaceCreated(holder: SurfaceHolder) {}
     override fun surfaceDestroyed(holder: SurfaceHolder) {
         gameThread!!.pauseGame()
-    }
-
-    fun setGameOverListener(gameOverListener: GameFragment.OnGameOver?) {
-        this.gameOverListener = gameOverListener
     }
 }

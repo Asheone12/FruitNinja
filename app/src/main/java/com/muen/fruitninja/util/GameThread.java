@@ -9,7 +9,8 @@ import android.view.SurfaceHolder;
 
 import androidx.collection.SparseArrayCompat;
 
-import com.muen.fruitninja.ui.GameFragment;
+import com.muen.fruitninja.rxbus.RxBus;
+import com.muen.fruitninja.rxbus.event.GameOver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +24,6 @@ public class GameThread implements Runnable {
     private final Paint scorePaint = new Paint();
     private final SurfaceHolder surfaceHolder;
     private final GameTimer timer = new GameTimer();
-    private final GameFragment.OnGameOver gameOverListener;
     private final ProjectileManager projectileManager;
     private final ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     private final Paint linePaint = new Paint();
@@ -36,10 +36,9 @@ public class GameThread implements Runnable {
     private boolean isRunning = false;
     private SparseArrayCompat<TimedPath> paths;
 
-    public GameThread(SurfaceHolder surfaceHolder, ProjectileManager projectileManager, GameFragment.OnGameOver gameOverListener) {
+    public GameThread(SurfaceHolder surfaceHolder, ProjectileManager projectileManager) {
 	this.surfaceHolder = surfaceHolder;
 	this.projectileManager = projectileManager;
-	this.gameOverListener = gameOverListener;
     }
 
     public void pauseGame() {
@@ -83,7 +82,7 @@ public class GameThread implements Runnable {
 
 		if (timer.isGameFinished()) {
 		    isRunning = false;
-		    gameOverListener.onGameOver(score);
+			RxBus.get().post(new GameOver(score));
 		    self.cancel(true);
 		} else {
 

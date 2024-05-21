@@ -45,6 +45,10 @@ android {
             outputFileName = "GameFruitNinja_${variant.name}_v${variant.versionName}_${date}.apk"
         }
     }
+
+    buildFeatures{
+        viewBinding true
+    }
 }
 
 dependencies {
@@ -52,7 +56,15 @@ dependencies {
     implementation 'androidx.core:core-ktx:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //引入rxJava
+    implementation("io.reactivex.rxjava2:rxjava:2.1.8")
+    //引入rxAndroid
+    implementation("io.reactivex.rxjava2:rxandroid:2.0.1")
+    //引入J神的rxrelay2，出现异常仍然可以处理
+    implementation("com.jakewharton.rxrelay2:rxrelay:2.0.0")
 }
